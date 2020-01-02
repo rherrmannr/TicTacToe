@@ -44,8 +44,8 @@ class TicTacToeUI:
                 column_num += 1
             row_num += 1
 
-    def draw_winner(self):
-        text = "{0} has won. 'R' for restart!".format(self.tictactoe.player)
+    def draw_winner(self, winner):
+        text = "{0} has won. 'R' for restart!".format(winner)
         self.text = self.font.render(text, False, (0, 0, 0))
 
     def draw_draw(self):
@@ -57,8 +57,9 @@ class TicTacToeUI:
         self.text = self.font.render(text, False, (0, 0, 0))
 
     def show_text_output(self):
-        if self.tictactoe.check_player_has_won() is not None:
-            self.draw_winner()
+        winner = self.tictactoe.check_player_has_won()
+        if winner is not None:
+            self.draw_winner(winner)
         elif self.tictactoe.check_draw():
             self.draw_draw()
         else:
