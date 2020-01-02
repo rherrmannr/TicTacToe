@@ -19,14 +19,23 @@ class TicTacToe:
         return False
 
     def check_player_has_won(self):
+        # check rows
         for row in self.gf:
-            # check rows
-            if row[0] is row[1] and row[0] is row[2]:
+            if row[0] is row[1] and row[0] is row[2] and row[0] is not None:
                 return row[0]
-            # check columns
-            index = self.gf.index(row)
-            if self.gf[0][index] is self.gf[1][index] and self.gf[0][index] is self.gf[2][index]:
-                return self.gf[0][index]
+
+        # check columns
+        for i in range(3):
+            if self.gf[0][i] is self.gf[1][i] and self.gf[0][i] is self.gf[2][i] and self.gf[0][i] is not None:
+                return self.gf[0][i]
+
+        # check top left to bottom right
+        if self.gf[0][0] is self.gf[1][1] and self.gf[0][0] is self.gf[2][2] and self.gf[0][0] is not None:
+            return self.gf[0][0]
+
+        # check bottom left to top right
+        if self.gf[2][0] is self.gf[1][1] and self.gf [2][0] is self.gf[0][2] and self.gf[2][0] is not None:
+            return self.gf[2][0]
 
         # return None if no one has won
         return None
