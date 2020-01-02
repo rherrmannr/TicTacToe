@@ -12,24 +12,20 @@ class TestTicTacToe(unittest.TestCase):
                 self.assertEqual(ele, None)
 
     def test_set_player(self):
-        self.game.set_obj(0, 0, "O")
-        self.game.set_obj(1, 0, "O")
-        self.game.set_obj(2, 0, "O")
-        self.game.set_obj(0, 1, "X")
-        self.game.set_obj(1, 1, "X")
-        self.game.set_obj(2, 1, "X")
-        self.game.set_obj(0, 2, "O")
-        self.game.set_obj(1, 2, "O")
-        self.game.set_obj(2, 2, "O")
+        self.game.set_obj(0, 0)  # X
+        self.game.set_obj(1, 0)  # O
+        self.game.set_obj(2, 0)  # X
+        self.game.set_obj(0, 1)  # O
+        self.game.set_obj(0, 2)  # X
         self.assertEqual(self.game.gf,
-                         [["O", "X", "O"],
-                          ["O", "X", "O"],
-                          ["O", "X", "O"]])
+                         [["X", "O", "X"],
+                          ["O", None, None],
+                          ["X", None, None]])
 
     def test_set_only_once(self):
-        self.assertTrue(self.game.set_obj(0, 0, "X"))
-        self.assertFalse(self.game.set_obj(0, 0, "X"))
-        self.assertFalse(self.game.set_obj(0, 0, "O"))
+        self.assertTrue(self.game.set_obj(0, 0))
+        self.assertFalse(self.game.set_obj(0, 0))
+        self.assertFalse(self.game.set_obj(0, 0))
 
     def test_won_empty(self):
         # test empty game field
