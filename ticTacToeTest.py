@@ -38,26 +38,46 @@ class TestTicTacToe(unittest.TestCase):
                         [None, None, None]]
         self.assertEqual(self.game.check_player_has_won(), "X")
 
+        self.game.gf = [["O", "O", None],
+                        ["X", "X", "X"],
+                        ["O", None, None]]
+        self.assertEqual(self.game.check_player_has_won(), "X")
+
+        self.game.gf = [[None, None, None],
+                        ["O", "O", None],
+                        ["X", "X", "X"]]
+        self.assertEqual(self.game.check_player_has_won(), "X")
+
     def test_won_column(self):
         # test column
-        self.game.gf = [["X", "X", "O"],
+        self.game.gf = [["X", "O", None],
                         ["X", "O", None],
                         ["X", None, None]]
         self.assertEqual(self.game.check_player_has_won(), "X")
 
+        self.game.gf = [[None, "X", "O"],
+                        [None, "X", "O"],
+                        [None, "X", None]]
+        self.assertEqual(self.game.check_player_has_won(), "X")
+
+        self.game.gf = [[None, "O", "X"],
+                        [None, "O", "X"],
+                        [None, None, "X"]]
+        self.assertEqual(self.game.check_player_has_won(), "X")
+
     def test_won_top_left_bottom_right(self):
         # test top left to bottom right
-        self.game.gf = [["X", "X", "O"],
-                        ["X", "O", None],
-                        ["X", None, None]]
+        self.game.gf = [["X", None, None],
+                        ["O", "X", None],
+                        ["O", None, "X"]]
         self.assertEqual(self.game.check_player_has_won(), "X")
 
     def test_won_bottom_left_top_right(self):
         # test bottom left to top right
         self.game.gf = [["X", "X", "O"],
                         ["X", "O", None],
-                        ["X", None, None]]
-        self.assertEqual(self.game.check_player_has_won(), "X")
+                        ["O", None, None]]
+        self.assertEqual(self.game.check_player_has_won(), "O")
 
     def test_won_draw(self):
         # test draw
