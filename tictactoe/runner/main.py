@@ -1,6 +1,6 @@
 import pygame
-from ticTacToe import TicTacToe
-from ticTacToeUi import TicTacToeUI
+from tictactoe.game.ticTacToe import TicTacToe
+from tictactoe.ui.ticTacToeUi import TicTacToeUI
 
 pygame.init()
 window = pygame.display.set_mode((300, 350))
