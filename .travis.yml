@@ -5,4 +5,5 @@ cache: pip
 install:
   - pip install -r requirements.txt
 script:
+  - export PYTHONPATH=$PYTHONPATH:TRAVIS_BUILD_DIR
   - python tictactoe/tests/ticTacToeTest.py
