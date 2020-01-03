@@ -1,3 +1,9 @@
+# run tests locally:
+# $ export PYTHONPATH=`pwd`
+# $ python3 tests/ticTacToeTest.py
+# or use -m unittest:
+# $ python3 -m unittest tests/ticTacToe.py
+
 import unittest
 from tictactoe.game.ticTacToe import TicTacToe
 
